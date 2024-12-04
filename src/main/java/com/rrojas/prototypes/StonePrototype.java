@@ -4,5 +4,5 @@ import com.rrojas.models.AbstractStone;
 
 @FunctionalInterface
 public interface StonePrototype<S extends AbstractStone> {
-    S buildPrototype();
+    S buildPrototype(S stone);
 }

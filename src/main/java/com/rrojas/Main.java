@@ -1,12 +1,7 @@
 package com.rrojas;
 
-import com.rrojas.models.AbstractStone;
 import com.rrojas.models.MindStone;
-import com.rrojas.models.PowerStone;
-import com.rrojas.models.RealityStone;
-import com.rrojas.services.GauntletService;
-import com.rrojas.services.GauntletServiceImpl;
-import com.rrojas.singletonFactory.RealityStoneSingleton;
+import com.rrojas.prototypes.Prototypes;
 
 public class Main {
     public static void main(String[] args) {
@@ -33,8 +28,13 @@ public class Main {
         System.out.println(System.identityHashCode(mind));
 
         //instance 2
-        final var mindPrototype = mind.getPrototype();
+        final var mindPrototype = Prototypes.mindPrototype.buildPrototype(mind);
         System.out.println(mindPrototype);
         System.out.println(System.identityHashCode(mindPrototype));
+
+        //instance 3
+        final var mindPrototype2 = Prototypes.mindPrototype.buildPrototype(mind);
+        System.out.println(mindPrototype2);
+        System.out.println(System.identityHashCode(mindPrototype2));
     }
 }
